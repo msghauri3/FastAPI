@@ -8,7 +8,10 @@ from allowance_routes import router as allowance_router
 from configuration_routes import router as configuration_router
 from deductions_routes import router as deductions_router
 from departments_routes import router as departments_router
-
+from salary_payment_routes import router as salary_payment_router
+from taxslab_routes import router as taxslabs_router
+from login_routes import router as login_router 
+from user_routes import router as users_router 
 
 app = FastAPI(title="Employee Management API", version="1.0.0")
 
@@ -36,7 +39,10 @@ app.include_router(allowance_router)
 app.include_router(configuration_router)
 app.include_router(deductions_router)
 app.include_router(departments_router)
-
+app.include_router(salary_payment_router)
+app.include_router(taxslabs_router)
+app.include_router(login_router)   
+app.include_router(users_router)
 
 @app.get("/")
 async def root():
@@ -49,7 +55,10 @@ async def root():
              "configuration": "/configuration", 
              "deductions": "/deductions",
              "departments": "/departments",
-             
+             "salary-payments": "/salary-payments",
+             "taxslabs": "/taxslabs",  
+              "logins": "/logins",
+                 "users": "/users",
 
             "docs": "/docs"
         }

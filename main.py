@@ -8,6 +8,11 @@ from allowance_routes import router as allowance_router
 from configuration_routes import router as configuration_router
 from deductions_routes import router as deductions_router
 from departments_routes import router as departments_router
+from employee_leave_summary_routes import router as leave_summary_router
+from employee_tax_routes import router as employee_tax_router
+from gazetted_holidays_routes import router as gazetted_holidays_router
+from leave_quota_routes import router as leave_quota_router
+from promotion_routes import router as promotion_router
 
 
 app = FastAPI(title="Employee Management API", version="1.0.0")
@@ -36,6 +41,11 @@ app.include_router(allowance_router)
 app.include_router(configuration_router)
 app.include_router(deductions_router)
 app.include_router(departments_router)
+app.include_router(leave_summary_router)
+app.include_router(employee_tax_router)
+app.include_router(gazetted_holidays_router)
+app.include_router(leave_quota_router)
+app.include_router(promotion_router)
 
 
 @app.get("/")
@@ -44,13 +54,16 @@ async def root():
         "message": "Employee Management API",
         "endpoints": {
             "employees": "/employees",
-            "leaves": "/leaves", 
-            "allowance": "/allowance", 
-             "configuration": "/configuration", 
-             "deductions": "/deductions",
-             "departments": "/departments",
-             
-
+            "leaves": "/leaves",
+            "allowance": "/allowance",
+            "configuration": "/configuration",
+            "deductions": "/deductions",
+            "departments": "/departments",
+            "leave-summary": "/leave-summary",  
+            "employee-tax": "/employee-tax",
+            "gazetted-holidays": "/gazetted-holidays",
+            "leave-quota": "/leave-quota",
+            "promotions": "/promotions",
             "docs": "/docs"
         }
     }

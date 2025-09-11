@@ -7,6 +7,8 @@ from leaves_routes import router as leaves_router
 from allowance_routes import router as allowance_router
 from configuration_routes import router as configuration_router
 from deductions_routes import router as deductions_router
+from departments_routes import router as departments_router
+
 
 app = FastAPI(title="Employee Management API", version="1.0.0")
 
@@ -33,6 +35,8 @@ app.include_router(leaves_router)
 app.include_router(allowance_router)
 app.include_router(configuration_router)
 app.include_router(deductions_router)
+app.include_router(departments_router)
+
 
 @app.get("/")
 async def root():
@@ -44,6 +48,9 @@ async def root():
             "allowance": "/allowance", 
              "configuration": "/configuration", 
              "deductions": "/deductions",
+             "departments": "/departments",
+             
+
             "docs": "/docs"
         }
     }

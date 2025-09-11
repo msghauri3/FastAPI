@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # Import routers
 from employees_routes import router as employees_router
 from leaves_routes import router as leaves_router
+from allowance_routes import router as allowance_router
+from configuration_routes import router as configuration_router
+from deductions_routes import router as deductions_router
 
 app = FastAPI(title="Employee Management API", version="1.0.0")
 
@@ -27,6 +30,9 @@ app.add_middleware(
 # Include routers
 app.include_router(employees_router)
 app.include_router(leaves_router)
+app.include_router(allowance_router)
+app.include_router(configuration_router)
+app.include_router(deductions_router)
 
 @app.get("/")
 async def root():
@@ -35,6 +41,9 @@ async def root():
         "endpoints": {
             "employees": "/employees",
             "leaves": "/leaves", 
+            "allowance": "/allowance", 
+             "configuration": "/configuration", 
+             "deductions": "/deductions",
             "docs": "/docs"
         }
     }

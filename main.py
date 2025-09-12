@@ -12,6 +12,12 @@ from salary_payment_routes import router as salary_payment_router
 from taxslab_routes import router as taxslabs_router
 from login_routes import router as login_router 
 from user_routes import router as users_router 
+from employee_leave_summary_routes import router as leave_summary_router
+from employee_tax_routes import router as employee_tax_router
+from gazetted_holidays_routes import router as gazetted_holidays_router
+from leave_quota_routes import router as leave_quota_router
+from promotion_routes import router as promotion_router
+
 
 app = FastAPI(title="Employee Management API", version="1.0.0")
 
@@ -43,6 +49,12 @@ app.include_router(salary_payment_router)
 app.include_router(taxslabs_router)
 app.include_router(login_router)   
 app.include_router(users_router)
+app.include_router(leave_summary_router)
+app.include_router(employee_tax_router)
+app.include_router(gazetted_holidays_router)
+app.include_router(leave_quota_router)
+app.include_router(promotion_router)
+
 
 @app.get("/")
 async def root():
@@ -60,6 +72,16 @@ async def root():
               "logins": "/logins",
                  "users": "/users",
 
+            "leaves": "/leaves",
+            "allowance": "/allowance",
+            "configuration": "/configuration",
+            "deductions": "/deductions",
+            "departments": "/departments",
+            "leave-summary": "/leave-summary",  
+            "employee-tax": "/employee-tax",
+            "gazetted-holidays": "/gazetted-holidays",
+            "leave-quota": "/leave-quota",
+            "promotions": "/promotions",
             "docs": "/docs"
         }
     }

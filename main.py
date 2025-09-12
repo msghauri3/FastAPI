@@ -62,16 +62,6 @@ async def root():
         "message": "Employee Management API",
         "endpoints": {
             "employees": "/employees",
-            "leaves": "/leaves", 
-            "allowance": "/allowance", 
-             "configuration": "/configuration", 
-             "deductions": "/deductions",
-             "departments": "/departments",
-             "salary-payments": "/salary-payments",
-             "taxslabs": "/taxslabs",  
-              "logins": "/logins",
-                 "users": "/users",
-
             "leaves": "/leaves",
             "allowance": "/allowance",
             "configuration": "/configuration",
@@ -82,6 +72,10 @@ async def root():
             "gazetted-holidays": "/gazetted-holidays",
             "leave-quota": "/leave-quota",
             "promotions": "/promotions",
+            "salary-payments": "/salary-payments",
+            "taxslabs": "/taxslabs",  
+            "logins": "/logins",
+            "users": "/users",
             "docs": "/docs"
         }
     }
